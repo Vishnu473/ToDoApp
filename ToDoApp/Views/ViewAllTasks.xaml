@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ToDoApp.Views.ViewAllTasks"
+    xmlns:Converters="clr-namespace:ToDoApp.Converters"
+    xmlns:Templates="clr-namespace:ToDoApp.Templates"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="View All Your Tasks">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:IsCompletedMultiTrigger x:Key="CompletedDataTrigger"/>
+            <DataTemplate x:Key="NormalTemplateUI">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Edit" x:Name="MIEdit" Clicked="MIEdit_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                        <MenuItem Text="Delete" x:Name="MIDelete" Clicked="MIDelete_Clicked"
+                                    CommandParameter="{Binding .}" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                    <ViewCell.View>
+                        <Frame CornerRadius="5" BackgroundColor="Transparent" Padding="1">
+                            <Grid Opacity="0.8" RowDefinitions="Auto,Auto,Auto" Padding="20"
+                              TranslationX="-4" ColumnDefinitions="1.5*,*" BackgroundColor="White">
+                                <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/> 
+                                <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1" x:Name="ToDoPriority" FontAttributes="Bold" TextColor="DarkSlateGray"/>
+                                <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2" />
+                                <Label Text="CreatedDate" Grid.Row="2" FontSize="Small" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="CompletedDate" Grid.Row="2" FontSize="Small" Grid.Column="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding CreatedDate}" Grid.Row="3" FontSize="Small" Grid.Column="0"/>
+                                <Label Text="{Binding CompletedDate}" Grid.Row="3" FontSize="Small" Grid.Column="1" x:Name="CompletedDate"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="MediumTemplateUI">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Edit" x:Name="MIEdit" Clicked="MIEdit_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                        <MenuItem Text="Delete" x:Name="MIDelete" Clicked="MIDelete_Clicked"
+                                    CommandParameter="{Binding .}" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                    <ViewCell.View>
+                        <Frame CornerRadius="10" BackgroundColor="Orange" Padding="0.1">
+                            <Grid Opacity="0.8" RowDefinitions="Auto,Auto,Auto" Padding="20"
+                              TranslationX="-4" ColumnDefinitions="1.5*,*" BackgroundColor="White">
+                                <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/> 
+                                <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1" x:Name="ToDoPriority" FontAttributes="Bold" TextColor="Orange"/>
+                                <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2" />
+                                <Label Text="CreatedDate" Grid.Row="2" FontSize="Small" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="CompletedDate" Grid.Row="2" FontSize="Small" Grid.Column="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding CreatedDate}" Grid.Row="3" FontSize="Small" Grid.Column="0"/>
+                                <Label Text="{Binding CompletedDate}" Grid.Row="3" FontSize="Small" Grid.Column="1" x:Name="CompletedDate"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="HighTemplateUI">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Edit" x:Name="MIEdit" Clicked="MIEdit_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                        <MenuItem Text="Delete" x:Name="MIDelete" Clicked="MIDelete_Clicked"
+                                    CommandParameter="{Binding .}" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                    <ViewCell.View>
+                        <Frame CornerRadius="10" BackgroundColor="Red" Padding="0.1">
+                            <Grid Opacity="0.8" RowDefinitions="Auto,Auto,Auto" Padding="20"
+                              TranslationX="-4" ColumnDefinitions="1.5*,*" BackgroundColor="White">
+                                <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/> 
+                                <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1" x:Name="ToDoPriority" FontAttributes="Bold" TextColor="Red"/>
+                                <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2" />
+                                <Label Text="CreatedDate" Grid.Row="2" FontSize="Small" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="CompletedDate" Grid.Row="2" FontSize="Small" Grid.Column="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding CreatedDate}" Grid.Row="3" FontSize="Small" Grid.Column="0"/>
+                                <Label Text="{Binding CompletedDate}" Grid.Row="3" FontSize="Small" Grid.Column="1" x:Name="CompletedDate"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="CompletedTemplateUI">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Edit" x:Name="MIEdit" Clicked="MIEdit_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                        <MenuItem Text="Delete" x:Name="MIDelete" Clicked="MIDelete_Clicked"
+                                    CommandParameter="{Binding .}" IsDestructive="True"/>
+                    </ViewCell.ContextActions>
+                    <ViewCell.View>
+                        <Frame CornerRadius="10" BackgroundColor="Green" Padding="0.1">
+                            <Grid Opacity="0.8" RowDefinitions="Auto,Auto,Auto" Padding="20"
+                              TranslationX="-4" ColumnDefinitions="1.5*,*" BackgroundColor="White">
+                                <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/> 
+                                <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1" x:Name="ToDoPriority" FontAttributes="Bold" TextColor="Green"/>
+                                <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2" />
+                                <Label Text="CreatedDate" Grid.Row="2" FontSize="Small" Grid.Column="0" FontAttributes="Bold"/>
+                                <Label Text="CompletedDate" Grid.Row="2" FontSize="Small" Grid.Column="1" FontAttributes="Bold"/>
+                                <Label Text="{Binding CreatedDate}" Grid.Row="3" FontSize="Small" Grid.Column="0"/>
+                                <Label Text="{Binding CompletedDate}" Grid.Row="3" FontSize="Small" Grid.Column="1" x:Name="CompletedDate"/>
+                            </Grid>
+                        </Frame>
+                        
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+            <Templates:PriorityTemplate x:Key="ToDoTemplate"
+                                        NormalPriority="{StaticResource NormalTemplateUI}"
+                                        MediumPriority="{StaticResource MediumTemplateUI}"
+                                        HighPriority="{StaticResource HighTemplateUI}"
+                                        Completed="{StaticResource CompletedTemplateUI}">
+            </Templates:PriorityTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Grid.Row="0" RowDefinitions="Auto,*" >
+            <ListView Grid.Row="0" x:Name="ToDoCollection" HasUnevenRows="True"
+                      ItemTemplate="{StaticResource ToDoTemplate}" VerticalScrollBarVisibility="Never">
+                
+            </ListView>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

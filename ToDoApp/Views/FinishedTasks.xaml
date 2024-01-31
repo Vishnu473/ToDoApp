@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    x:Class="ToDoApp.Views.FinishedTasks"
+    Title="Finished Tasks">
+    <ContentPage.Content>
+       <Grid Grid.Row="0" RowDefinitions="Auto">
+            <ListView Grid.Row="0" x:Name="CompletedTasks" HasUnevenRows="True" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame BackgroundColor="Green" Padding="0.1">
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" 
+                                        Padding="20" TranslationX="-4" ColumnDefinitions="1.5*,*" BackgroundColor="White" Opacity="0.7">
+                                    <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0" TextColor="DarkGreen" FontAttributes="Bold"/> 
+                                    <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1" x:Name="ToDoPriority" />
+                                    <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                    <Label Text="Created on: " Grid.Row="2" FontSize="Small" Grid.Column="0"/>
+                                    <Label Text="Completed on: " Grid.Row="2" FontSize="Small" Grid.Column="1"/>
+                                    <Label Text="{Binding CreatedDate}" Grid.Row="3" FontSize="Small" Grid.Column="0"/>
+                                    <Label Text="{Binding CompletedDate}" Grid.Row="3" FontSize="Small" Grid.Column="1" x:Name="CompletedDate"/>
+
+                                </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <!--<CollectionView.EmptyView>
+                    <DataTemplate>
+                        <Label Text="No Finished Tasks" FontSize="Large" VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+                    </DataTemplate>
+                </CollectionView.EmptyView>-->
+            </ListView>
+                
+            </Grid> 
+    </ContentPage.Content>
+</ContentPage>
+

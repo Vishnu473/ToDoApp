@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ToDoApp.Views.ManageToDoView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="Manage Your Tasks">
+    <ContentPage.Content>
+        <Grid Grid.Row="0" RowDefinitions="Auto,*" >
+            <ListView Grid.Row="0" x:Name="ToDoCollection" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Edit" x:Name="MIEdit" Clicked="MIEdit_Clicked"
+                                            CommandParameter="{Binding .}"/>
+                                <MenuItem Text="Delete" x:Name="MIDelete" Clicked="MIDelete_Clicked"
+                                            CommandParameter="{Binding .}" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                            <ViewCell.View>
+                                <Grid BackgroundColor="Transparent" Opacity="0.8" RowDefinitions="Auto,Auto,Auto"
+                                        Padding="20,5,0,0" TranslationX="-4" ColumnDefinitions="1.5*,*">
+                                    <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0"/> 
+                                    <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1"/>
+                                    <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding CreatedDate,StringFormat='Created on: {0}'}" Grid.Row="2" FontSize="Small" Grid.Column="0"/>
+                                    <Label Text="{Binding CompletedDate,StringFormat='Completed on: {0}'}" Grid.Row="3" FontSize="Small" Grid.Column="0" x:Name="CompletedDate"/>
+
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

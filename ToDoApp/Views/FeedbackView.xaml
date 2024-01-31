@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ToDoApp.Views.FeedbackView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto">
+        <Frame CornerRadius="5" Padding="5" BorderColor="Black" Margin="5">
+        <Grid RowDefinitions="Auto,40,250,Auto,Auto" Padding="10" BackgroundColor="#aaa">
+            <Label Text="FeedBackForm" FontSize="Title" FontAttributes="Bold" Grid.Row="0" HorizontalTextAlignment="Center"/>
+            <Entry Placeholder="Hint: Type Errors or Useful" FontSize="Medium" Grid.Row="1" BackgroundColor="#777"
+                   PlaceholderColor="#333456" x:Name="FeedBackType"/>
+            <Editor Keyboard="Plain" Placeholder="Provide FeedBack" BackgroundColor="#777"
+                    TextColor="Purple" PlaceholderColor="#333444" Grid.Row="2" FontSize="Large" x:Name="FeedBack"/>
+            <Button Text="Submit" BackgroundColor="Black" HorizontalOptions="Center" Grid.Row="3" Margin="0,5"
+                    WidthRequest="100" FontAttributes="Bold" TextColor="White" x:Name="FeedBackSubmit" Clicked="FeedBackSubmit_Clicked" />
+        </Grid>
+        </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

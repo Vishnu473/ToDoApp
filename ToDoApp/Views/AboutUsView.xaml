@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ToDoApp.Views.AboutUsView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="About Us">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto" Padding="10">
+        <Frame CornerRadius="2" Padding="10" Grid.Row="0" BackgroundColor="#ddd">
+        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="150,Auto">
+            <Label Text="About Us" HorizontalTextAlignment="Center" FontSize="Title" FontAttributes="Bold" Grid.Row="0"/>
+            <Frame CornerRadius="10" Grid.Row="1" Grid.ColumnSpan="2" HasShadow="False" BorderColor="Black" BackgroundColor="#aaa">
+            <Label FontSize="Body" Grid.ColumnSpan="2" Grid.Row="1" TextType="Text">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span  Text="The main theme of "/>
+                        <Span Text="TaskManager " FontAttributes="Bold" />
+                        <Span Text="is to help the users to track or notify about their Tasks.
+                              They can even edit their tasks priorities when necessary. They can also even edit their Completed Dates andd track their Last Tasks.They can also delete the unwanted or finished tasks that they didnot wish."/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            </Frame>
+        </Grid>
+        </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

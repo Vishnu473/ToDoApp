@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ToDoApp.Views.ToDoEditPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    NavigationPage.HasBackButton="False"
+    BackgroundColor="#121212"
+    Title="Edit Tasks">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,100,Auto,30,Auto" ColumnDefinitions="*,*">
+            <StackLayout Padding="10" BackgroundColor="#222222" Grid.Row="0" Grid.ColumnSpan="2">
+                <Entry x:Name="EntryTaskTitle" HeightRequest="60" FontAttributes="Bold"
+                   FontSize="Title" PlaceholderColor="Gray" BackgroundColor="#222222" 
+                   Placeholder="Add TaskTitle" TextColor="White" Text="{Binding TaskTitle}"/>
+            </StackLayout>
+            <StackLayout BackgroundColor="#222222" Grid.Row="1" Padding="10" Grid.ColumnSpan="2">
+                <Label Text="Add Task Description" FontSize="Large" FontAttributes="Bold" TextColor="Gray"/>
+                <Editor Keyboard="Plain" AutoSize="TextChanges" TextColor="White" FontSize="Large" Text="{Binding TaskDescription}"
+                   HeightRequest="300" BackgroundColor="#333333" x:Name="EntryTaskDesc" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2" BackgroundColor="#222222" Padding="10" Grid.ColumnSpan="2">
+                <Label Text="Select Priority" TextColor="Gray" FontSize="Large" FontAttributes="Bold"/>
+                <Picker x:Name="SelectPriority" TextColor="White" BackgroundColor="#333333" Title="Select Priority"
+                        TitleColor="Gray" SelectedItem="{Binding Priority}"></Picker>
+            </StackLayout>
+            <StackLayout Grid.Row="3" BackgroundColor="#222222" Padding="10" Grid.Column="0">
+                <Label Text="Create Date" FontAttributes="Bold" Margin="5" TextColor="Gray"/>
+                <Entry x:Name="PickDate" BackgroundColor="#333333" TextColor="white"
+                       Placeholder="MM/dd/YYYY" Text="{Binding CreatedDate}"/>
+            </StackLayout>
+            <StackLayout Grid.Row="3" BackgroundColor="#222222" Padding="10" Grid.Column="1">
+                <Label Text="Completed Date" FontAttributes="Bold" Margin="5" TextColor="Gray"/>
+                <Entry x:Name="EndDate" BackgroundColor="#333333" TextColor="white"
+                       Placeholder="MM/dd/YYYY" Text="{Binding CompletedDate}"/>
+            </StackLayout>
+            <Button Text="Save" BackgroundColor="DarkGreen" TextColor="White" Grid.Row="5" Grid.Column="0"
+                    HorizontalOptions="Center" FontSize="Large" WidthRequest="150" FontAttributes="Bold" Opacity="0.8"
+                    x:Name="SaveBtn" Clicked="SaveBtn_Clicked" />
+            <Button Text="Cancel" BackgroundColor="#222222" TextColor="White" Grid.Row="5" Grid.Column="1"
+                    HorizontalOptions="Center" FontSize="Large" WidthRequest="150" FontAttributes="Bold" Opacity="0.8"
+                    x:Name="CancelBtn" Clicked="CancelBtn_Clicked" />
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

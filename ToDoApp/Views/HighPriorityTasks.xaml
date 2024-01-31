@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ToDoApp.Views.HighPriorityTasks"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="High Priority Tasks">
+    <ContentPage.Content>
+        <Grid Grid.Row="0" RowDefinitions="Auto,*" >
+            <ListView Grid.Row="0" x:Name="HighTasks" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame CornerRadius="5"  Padding="1" BackgroundColor="Red">
+                                <Grid RowDefinitions="Auto,Auto,Auto" BackgroundColor="White" Opacity="0.7"
+                                        Padding="20" TranslationX="-4" ColumnDefinitions="1.5*,*">
+                                    <Label Text="{Binding TaskTitle}" FontSize="Large" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"/> 
+                                    <Label Text="{Binding Priority,StringFormat='Priority : {0}'}" FontSize="Medium" Grid.Row="0" Grid.Column="1" x:Name="ToDoPriority" TextColor="OrangeRed"/>
+                                    <Label Text="{Binding TaskDescription}" FontSize="Medium" Grid.Row="1" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding CreatedDate,StringFormat='Created on: {0}'}" Grid.Row="2" FontSize="Small" Grid.Column="0"/>
+                                    <Label Text="{Binding CompletedDate,StringFormat='Completed on: {0}'}" Grid.Row="3" FontSize="Small" Grid.Column="0" x:Name="CompletedDate"/>
+
+                                </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
